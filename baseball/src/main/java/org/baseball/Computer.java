@@ -40,4 +40,8 @@ public class Computer {
 
     return Answer.of(ball, strike);
   }
+
+  public String getAnswer() {
+    return this.answer;
+  }
 }
