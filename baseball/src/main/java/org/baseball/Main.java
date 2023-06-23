@@ -7,7 +7,14 @@ public class Main {
     computer.calcAnswer();
 
     Player player = new Player();
-    Answer answer = computer.checkAnswer(player.inputAnswer());
-    System.out.println(answer.toString());
+
+    while(true) {
+      Answer answer = computer.checkAnswer(player.inputAnswer());
+      System.out.println(answer.toString());
+      if (answer.getResult()) {
+        System.out.println("3개의 숫자를 모두 맞추셨습니다!");
+        break;
+      }
+    }
   }
 }
