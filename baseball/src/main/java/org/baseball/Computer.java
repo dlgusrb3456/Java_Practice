@@ -27,14 +27,17 @@ public class Computer {
     int strike = 0;
 
     for (int i = 0; i < 3; i++) {
-      if (playerAnswer.charAt(i) == answer.charAt(i)) {
+      char checkChar = playerAnswer.charAt(i);
+      if (checkChar == answer.charAt(i)) {
         strike += 1;
         continue;
       }
-      ball += 1;
+
+      if (answer.contains(String.valueOf(checkChar))) {
+        ball += 1;
+      }
     }
 
     return Answer.of(ball, strike);
   }
-
 }
