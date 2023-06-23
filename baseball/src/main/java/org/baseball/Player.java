@@ -13,6 +13,7 @@ public class Player {
 
     String playerInput;
     Scanner scanner = new Scanner(System.in);
+    System.out.println("정답을 입력하세요: ");
     playerInput = scanner.next();
 
     validateIsInt(playerInput);

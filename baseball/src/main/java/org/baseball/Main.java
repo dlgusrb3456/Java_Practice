@@ -7,6 +7,7 @@ public class Main {
     computer.calcAnswer();
 
     Player player = new Player();
-    player.inputAnswer();
+    Answer answer = computer.checkAnswer(player.inputAnswer());
+    System.out.println(answer.toString());
   }
 }

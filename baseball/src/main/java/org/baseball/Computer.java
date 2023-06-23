@@ -21,4 +21,20 @@ public class Computer {
 
     this.answer = stringAnswer;
   }
+
+  public Answer checkAnswer(String playerAnswer) {
+    int ball = 0;
+    int strike = 0;
+
+    for (int i = 0; i < 3; i++) {
+      if (playerAnswer.charAt(i) == answer.charAt(i)) {
+        strike += 1;
+        continue;
+      }
+      ball += 1;
+    }
+
+    return Answer.of(ball, strike);
+  }
+
 }
