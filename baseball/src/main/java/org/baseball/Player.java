@@ -4,26 +4,24 @@ import java.util.Scanner;
 
 public class Player {
 
+  private String playerInput;
+
   public Player() {
   }
 
-  public String inputAnswer() {
-    String playerInput;
-    Scanner scanner = new Scanner(System.in);
+  public void inputAnswer(Scanner scanner) {
     System.out.print("숫자를 입력해주세요 : ");
-    playerInput = scanner.next();
+    this.playerInput = scanner.next();
 
-    validateIsInt(playerInput);
-    validateLength(playerInput);
-
-    return playerInput;
+    validateIsInt(this.playerInput);
+    validateLength(this.playerInput);
   }
 
   private void validateIsInt(String playerInput) {
     try {
       Integer.valueOf(playerInput);
-    } catch (IllegalArgumentException exception) {
-      exception.printStackTrace();
+    } catch (NumberFormatException exception) {
+      throw new IllegalArgumentException();
     }
   }
 
@@ -31,5 +29,9 @@ public class Player {
     if (playerInput.length() != 3) {
       throw new IllegalArgumentException();
     }
+  }
+
+  public String getPlayerInput() {
+    return this.playerInput;
   }
 }
