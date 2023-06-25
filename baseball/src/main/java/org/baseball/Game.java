@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Game {
 
+  private final String RUNGAME = "1";
+  private final String ENDGAME = "2";
+
   public Game() {
 
   }
@@ -11,7 +14,7 @@ public class Game {
   public void start() {
     String doGame;
     Computer computer = new Computer();
-    computer.calcAnswer();
+    computer.calculateAnswer();
 
     System.out.println(computer.getAnswer());
     Player player = new Player();
@@ -31,12 +34,12 @@ public class Game {
         break;
       }
     }
-    if (doGame.equals("1")) {
+    if (doGame.equals(RUNGAME)) {
       start();
     }
   }
   private void validateOneOrTwo(String doGame) {
-    if(!doGame.equals("1") & !doGame.equals("2")) {
+    if(!doGame.equals(RUNGAME) & !doGame.equals(ENDGAME)) {
       throw new IllegalArgumentException();
     }
   }

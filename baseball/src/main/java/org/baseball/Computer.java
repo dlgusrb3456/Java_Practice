@@ -9,7 +9,7 @@ public class Computer {
   public Computer() {
   }
 
-  public void calcAnswer() {
+  public void calculateAnswer() {
     Random random = new Random();
     String stringAnswer = "";
     while (stringAnswer.length() != 3) {
