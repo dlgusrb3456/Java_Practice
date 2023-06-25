@@ -8,18 +8,23 @@ public class Game {
   private final String ENDGAME = "2";
 
   public Game() {
-
   }
 
   public void start() {
-    String doGame;
     Computer computer = new Computer();
-    computer.calculateAnswer();
-
-    System.out.println(computer.getAnswer());
     Player player = new Player();
 
-    while(true) {
+    String doGame = RUNGAME;
+
+    while (doGame.equals(RUNGAME)) {
+      doGame = run(computer, player);
+    }
+  }
+
+  private String run(Computer computer, Player player) {
+    computer.calculateAnswer();
+
+    while (true) {
       Answer answer = computer.checkAnswer(player.inputAnswer());
       System.out.println(answer.toString());
       if (answer.getResult()) {
@@ -27,19 +32,16 @@ public class Game {
         System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
 
         Scanner scanner = new Scanner(System.in);
-        doGame = scanner.next();
+        String doGame = scanner.next();
 
         validateOneOrTwo(doGame);
-
-        break;
+        return doGame;
       }
     }
-    if (doGame.equals(RUNGAME)) {
-      start();
-    }
   }
+
   private void validateOneOrTwo(String doGame) {
-    if(!doGame.equals(RUNGAME) & !doGame.equals(ENDGAME)) {
+    if (!doGame.equals(RUNGAME) & !doGame.equals(ENDGAME)) {
       throw new IllegalArgumentException();
     }
   }
