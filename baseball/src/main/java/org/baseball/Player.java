@@ -1,16 +1,13 @@
 package org.baseball;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Player {
 
   public Player() {
-
   }
 
   public String inputAnswer() {
-
     String playerInput;
     Scanner scanner = new Scanner(System.in);
     System.out.print("숫자를 입력해주세요 : ");
