@@ -47,4 +47,8 @@ public class Computer {
   public String getAnswer() {
     return this.answer;
   }
+
+  public void setAnswer(String answer) {
+    this.answer = answer;
+  }
 }
