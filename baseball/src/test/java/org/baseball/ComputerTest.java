@@ -15,14 +15,14 @@ class ComputerTest {
 
 
   @Test
-  @DisplayName("Computer 생성자 테스트")
+  @DisplayName("Computer 생성자 테스트 - 성공")
   void makeComputer() {
     Computer computer = new Computer();
     assertNotNull(computer);
   }
 
   @Test
-  @DisplayName("Computer calculateAnswer 테스트")
+  @DisplayName("Computer calculateAnswer 테스트 - 성공")
   void calculateAnswer() {
     Computer computer = new Computer();
     computer.calculateAnswer();
@@ -33,7 +33,7 @@ class ComputerTest {
   }
 
   @Test
-  @DisplayName("Computer checkAnswer 테스트")
+  @DisplayName("Computer checkAnswer 테스트 - 성공")
   void checkAnswer() {
     Computer computer = new Computer();
     try {
