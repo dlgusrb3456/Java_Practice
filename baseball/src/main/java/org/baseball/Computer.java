@@ -22,26 +22,33 @@ public class Computer {
     this.answer = stringAnswer;
   }
 
-  public Answer checkAnswer(String playerAnswer) {
+  public Result checkAnswer(String playerAnswer) {
+    return checkAnswer(playerAnswer, this.answer);
+  }
+
+  private Result checkAnswer(String playerAnswer, String computerAnswer) {
     int ball = 0;
     int strike = 0;
 
     for (int i = 0; i < 3; i++) {
       char checkChar = playerAnswer.charAt(i);
-      if (checkChar == answer.charAt(i)) {
+      if (checkChar == computerAnswer.charAt(i)) {
         strike += 1;
         continue;
       }
 
-      if (answer.contains(String.valueOf(checkChar))) {
+      if (computerAnswer.contains(String.valueOf(checkChar))) {
         ball += 1;
       }
     }
-
-    return Answer.of(ball, strike);
+    return Result.of(ball, strike);
   }
 
   public String getAnswer() {
     return this.answer;
+  }
+
+  public void setAnswer(String answer) {
+    this.answer = answer;
   }
 }

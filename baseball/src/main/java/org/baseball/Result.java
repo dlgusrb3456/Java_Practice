@@ -1,21 +1,21 @@
 package org.baseball;
 
-public class Answer {
+public class Result {
   private final int ball;
   private final int strike;
-  private final boolean result;
+  private final boolean isCorrect;
 
-  private Answer(int ball, int strike, boolean result) {
+  private Result(int ball, int strike, boolean isCorrect) {
     this.ball = ball;
     this.strike = strike;
-    this.result = result;
+    this.isCorrect = isCorrect;
   }
 
-  public static Answer of(int ball, int strike) {
+  public static Result of(int ball, int strike) {
     if (strike == 3) {
-      return new Answer(ball, strike, true);
+      return new Result(ball, strike, true);
     }
-    return new Answer(ball, strike, false);
+    return new Result(ball, strike, false);
   }
 
   @Override
@@ -35,7 +35,7 @@ public class Answer {
     return strike;
   }
 
-  public boolean getResult() {
-    return result;
+  public boolean getCorrect() {
+    return isCorrect;
   }
 }
