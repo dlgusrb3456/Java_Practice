@@ -74,4 +74,29 @@ class GameTest {
       exception.printStackTrace();
     }
   }
+
+  @Test
+  @DisplayName("Game run 테스트 1 Return- 성공")
+  void run_exception_one_or_two_validation() {
+    Game game = new Game();
+    Computer computer = new Computer();
+    Player player = new Player();
+    computer.setAnswer("123");
+
+    try {
+      Method method = game.getClass()
+          .getDeclaredMethod("run", Computer.class, Player.class, Scanner.class);
+      method.setAccessible(true);
+      List<String> lists = new ArrayList<>(Arrays.asList("123\n", "3"));
+
+      System.setIn(createInputStream(lists));
+      Scanner scanner = new Scanner(System.in);
+      
+      assertThrows(InvocationTargetException.class,
+          () -> method.invoke(game, computer, player, scanner));
+
+    } catch (NoSuchMethodException exception) {
+      exception.printStackTrace();
+    }
+  }
 }
